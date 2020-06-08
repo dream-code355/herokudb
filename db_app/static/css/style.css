@@ -1,0 +1,19 @@
+.header{
+  text-align: center;
+}
+.data-container{
+  text-align: center;
+}
+.add-info {
+  text-align: center;
+}
+form {
+  text-align: center;
+  display: block;
+}
+input {
+  margin-right: 5px;
+}
+label {
+  margin-right: 5px;
+};
