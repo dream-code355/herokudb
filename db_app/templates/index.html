@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <title></title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script type="text/javascript" src = "https://cdnjs.cloudflare.com/ajax/libs/d3/5.16.0/d3.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   </head>
   <body>
     <div class="header">
@@ -21,16 +23,21 @@
           <br>
         </div>
         <div class="" style = "text-align: center">
-          <button type="submit">Submit</button
+          <button type="submit">Submit</button>
         </div>
-
+        <br>
+        <br>
       </form>
     </div>
     <hr>
+
     <div class="data-container">
       {% for person in results %}
-      <p> My name is {{ person.name }}. My hobby is {{ person.hobby }}, and I am {{ person.age }} years old. </p>
+      <p class = "person"> My name is {{ person.name }}. My hobby is {{ person.hobby }}, and I am {{ person.age }} years old. </p>
       {% endfor %}
     </div>
+    <div id = "plot"></div>
+
+    <script type="text/javascript" src = "{{ url_for('static', filename = 'js/app.js') }}"></script>
   </body>
 </html>

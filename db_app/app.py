@@ -1,4 +1,4 @@
-from flask import Flask, url_for, render_template, request, redirect
+from flask import Flask, url_for, render_template, request, redirect, jsonify
 from flask_sqlalchemy import SQLAlchemy
 #import psycopg2
 import os
@@ -37,6 +37,16 @@ def update_db():
 
     return redirect("/", code = 302)
 
+@app.route("/data")
+def data():
+    results = []
+    for result in db.session.query(Class.name,Class.hobby, Class.age).all():
+        results.append({
+            "name" : result[0],
+            "hobby" : result[1],
+            "age" : result[2]
+        })
+    return(jsonify(results))
 
 
 
